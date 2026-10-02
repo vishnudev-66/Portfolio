@@ -6,6 +6,7 @@ import About from './sections/About'
 import Skills from './sections/Skills'
 import Projects from './sections/Projects'
 import Contact from './sections/Contact'
+import { currentAppPath } from './config/paths'
 
 const PAGES = {
   '/': Hero,
@@ -23,7 +24,7 @@ const BACKDROPS = {
 } as const
 
 export default function App() {
-  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  const path = currentAppPath()
   const Page = PAGES[path as keyof typeof PAGES] ?? Hero
   const backdrop = BACKDROPS[path as keyof typeof BACKDROPS]
 

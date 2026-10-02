@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, X, TerminalSquare, Moon, Sun } from 'lucide-react'
 import { site } from '../config/site'
+import { appPath, currentAppPath } from '../config/paths'
 
 const NAV_ITEMS = [
   { path: '/about', label: 'About' },
@@ -13,6 +14,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [lightTheme, setLightTheme] = useState(() => window.localStorage.getItem('theme') === 'light')
+  const currentPath = currentAppPath()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -37,7 +39,7 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8 lg:px-10" aria-label="Primary">
         <a
-          href="/"
+          href={appPath('/')}
           onClick={closeMenu}
           className="flex items-center gap-2 font-mono text-sm font-semibold text-ink-100"
         >
@@ -51,9 +53,9 @@ export default function Navbar() {
           {NAV_ITEMS.map((item) => (
             <li key={item.path}>
               <a
-                href={item.path}
+                href={appPath(item.path)}
                 className="rounded-md px-3 py-2 font-mono text-xs uppercase tracking-wide text-ink-300 transition-colors hover:text-signal-teal"
-                aria-current={window.location.pathname === item.path ? 'page' : undefined}
+                aria-current={currentPath === item.path ? 'page' : undefined}
               >
                 {item.label}
               </a>
@@ -89,10 +91,10 @@ export default function Navbar() {
             {NAV_ITEMS.map((item) => (
               <li key={item.path}>
                 <a
-                  href={item.path}
+                  href={appPath(item.path)}
                   onClick={closeMenu}
                   className="w-full rounded-md px-3 py-3 text-left font-mono text-sm text-ink-300 transition-colors hover:text-signal-teal"
-                  aria-current={window.location.pathname === item.path ? 'page' : undefined}
+                  aria-current={currentPath === item.path ? 'page' : undefined}
                 >
                   {item.label}
                 </a>

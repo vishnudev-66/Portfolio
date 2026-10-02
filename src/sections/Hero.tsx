@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Github, Download } from 'lucide-react'
 import { site } from '../config/site'
 import { useInView } from '../hooks/useInView'
+import { appPath } from '../config/paths'
 
 const ThreeBackground = lazy(() => import('../components/ThreeBackground'))
 
@@ -10,7 +11,7 @@ export default function Hero() {
   const { ref, inView } = useInView<HTMLDivElement>(0.15)
   const hasResume = Boolean(site.resumePath)
 
-  const goToProjects = () => { window.location.href = '/projects' }
+  const goToProjects = () => { window.location.href = appPath('/projects') }
 
   return (
     <section id="home" ref={ref} className="relative flex min-h-[92vh] items-center overflow-hidden">
@@ -74,7 +75,7 @@ export default function Hero() {
               <Github size={16} /> GitHub
             </a>
             {hasResume ? (
-              <a href={site.resumePath} download className="btn-secondary">
+              <a href={appPath(site.resumePath)} download className="btn-secondary">
                 <Download size={16} /> Download Resume
               </a>
             ) : (

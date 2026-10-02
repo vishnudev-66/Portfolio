@@ -1,5 +1,6 @@
 import { FileText, Download } from 'lucide-react'
 import { site } from '../config/site'
+import { appPath } from '../config/paths'
 import SectionHeading from '../components/SectionHeading'
 
 export default function Resume() {
@@ -25,7 +26,7 @@ export default function Resume() {
         </div>
 
         {hasResume ? (
-          <a href={site.resumePath} download className="btn-primary shrink-0">
+          <a href={appPath(site.resumePath)} download className="btn-primary shrink-0">
             <Download size={16} /> Download Resume
           </a>
         ) : (
