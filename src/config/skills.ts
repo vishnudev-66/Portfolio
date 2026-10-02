@@ -25,8 +25,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Python', level: 'practicing' },
       { name: 'C', level: 'learning' },
-      { name: 'Java', level: 'learning' },
-      { name: 'JavaScript', level: 'learning' },
     ],
   },
   {
@@ -52,12 +50,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Linux', level: 'practicing' },
       { name: 'Networking', level: 'learning' },
-      { name: 'Wireshark', level: 'learning' },
-      { name: 'Nmap', level: 'learning' },
-      { name: 'Burp Suite', level: 'exploring' },
-      { name: 'SOC Fundamentals', level: 'exploring' },
-      { name: 'Web Security', level: 'learning' },
-      { name: 'Ethical Hacking Fundamentals', level: 'exploring' },
     ],
   },
   {
@@ -65,9 +57,7 @@ export const skillCategories: SkillCategory[] = [
     title: 'Database',
     description: 'Structured data storage & queries',
     skills: [
-      { name: 'SQL', level: 'practicing' },
-      { name: 'MySQL', level: 'learning' },
-      { name: 'SQLite', level: 'practicing' },
+      { name: 'SQL', level: 'learning' },
     ],
   },
   {
@@ -75,8 +65,6 @@ export const skillCategories: SkillCategory[] = [
     title: 'Development',
     description: 'Building and serving applications',
     skills: [
-      { name: 'React', level: 'learning' },
-      { name: 'Node.js', level: 'learning' },
       { name: 'Flask / FastAPI', level: 'learning' },
       { name: 'REST APIs', level: 'practicing' },
     ],
