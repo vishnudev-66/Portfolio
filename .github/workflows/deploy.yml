@@ -37,8 +37,13 @@ jobs:
       - name: Build
         run: npm run build -- --base="/${GITHUB_REPOSITORY#*/}/"
 
-      - name: Prepare SPA fallback
-        run: cp dist/index.html dist/404.html
+      - name: Prepare section routes
+        run: |
+          for route in about skills projects contact; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
+          cp dist/index.html dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
