@@ -1,5 +1,6 @@
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
+import WebGL from 'three/addons/capabilities/WebGL.js'
 import NeuralNetworkScene from './NeuralNetworkScene'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
@@ -8,8 +9,11 @@ interface Props {
 }
 
 export default function ThreeBackground({ inView }: Props) {
+  const [webGLAvailable] = useState(() => WebGL.isWebGL2Available())
   const reducedMotion = useReducedMotion()
   const animate = inView && !reducedMotion
+
+  if (!webGLAvailable) return null
 
   return (
     <Canvas
